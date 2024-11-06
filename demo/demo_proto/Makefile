@@ -8,3 +8,7 @@ run-server: build-server
 .PHONY: run-client
 run-client:
 	@go run cmd/client/*
+
+.PHONY: run-dbop
+run-dbop:
+	@go run cmd/dbop/*

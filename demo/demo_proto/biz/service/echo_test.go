@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"testing"
+
 	pdapi "github.com/CHlluanma/go-mall-kitex/demo/demo_proto/kitex_gen/pdapi"
 )
 
@@ -17,5 +18,4 @@ func TestEcho_Run(t *testing.T) {
 	t.Logf("resp: %v", resp)
 
 	// todo: edit your unit test
-
 }

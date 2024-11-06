@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/CHlluanma/go-mall-kitex/demo/demo_proto/biz/dal/model"
 	"github.com/CHlluanma/go-mall-kitex/demo/demo_proto/conf"
 
 	"gorm.io/driver/mysql"
@@ -26,5 +27,9 @@ func Init() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("%#v", DB.Debug().Exec("select version()"))
+	err = DB.AutoMigrate(&model.User{})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("%#v\n", DB.Debug().Exec("select version()"))
 }

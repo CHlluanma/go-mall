@@ -4,6 +4,7 @@ import (
 	"net"
 	"time"
 
+	"github.com/CHlluanma/go-mall-kitex/demo/demo_proto/biz/dal"
 	"github.com/CHlluanma/go-mall-kitex/demo/demo_proto/conf"
 	"github.com/CHlluanma/go-mall-kitex/demo/demo_proto/kitex_gen/pdapi/echo"
 	"github.com/cloudwego/kitex/pkg/klog"
@@ -23,6 +24,8 @@ func main() {
 	}
 
 	opts := kitexInit()
+
+	dal.Init()
 
 	svr := echo.NewServer(new(EchoImpl), opts...)
 
@@ -66,7 +69,7 @@ func kitexInit() (opts []server.Option) {
 	}
 	klog.SetOutput(asyncWriter)
 	server.RegisterShutdownHook(func() {
-		asyncWriter.Sync()
+		_ = asyncWriter.Sync()
 	})
 	return
 }
