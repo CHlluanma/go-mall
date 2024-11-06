@@ -8,7 +8,6 @@ import (
 	"github.com/CHlluanma/go-mall-kitex/demo/demo_proto/conf"
 	"github.com/CHlluanma/go-mall-kitex/demo/demo_proto/kitex_gen/pdapi"
 	"github.com/CHlluanma/go-mall-kitex/demo/demo_proto/kitex_gen/pdapi/echo"
-	"github.com/CHlluanma/go-mall-kitex/demo/demo_proto/middleware"
 	"github.com/bytedance/gopkg/cloud/metainfo"
 	"github.com/cloudwego/kitex/client"
 	"github.com/cloudwego/kitex/pkg/kerrors"
@@ -27,7 +26,7 @@ func main() {
 	c, err := echo.NewClient("demo_proto", client.WithResolver(r),
 		client.WithTransportProtocol(transport.GRPC),
 		client.WithMetaHandler(transmeta.ClientHTTP2Handler),
-		client.WithMiddleware(middleware.Middleware),
+		// client.WithMiddleware(middleware.Middleware),
 	)
 	if err != nil {
 		panic(err)
@@ -43,5 +42,5 @@ func main() {
 		}
 		klog.Fatal(err)
 	}
-	fmt.Printf("res: %v", res)
+	fmt.Printf("res: %v\n", res)
 }

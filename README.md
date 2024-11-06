@@ -27,3 +27,10 @@ GO111MODULE=on GOPROXY=https://goproxy.cn/,direct go get github.com/cloudwego/cw
 # Go 1.16 及以后版本
 GOPROXY=https://goproxy.cn/,direct go install github.com/cloudwego/cwgo@latest
 ```
+
+## 编码指南
+- uber go style guide: https://github.com/uber-go/guide
+- protobuf style guide: https://protobuf.dev/programming-guides/style/
+- MDN HTTP response status codes：https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status
+- 约定式提交：https://www.conventionalcommits.org/zh-hans/v1.0.0/
+- 语义化版本：https://semver.org/lang/zh-CN/
