@@ -3,6 +3,20 @@
 
 学习自[gomall](https://github.com/cloudwego/biz-demo/tree/main/gomall)
 
+## 技术栈
+- `Kitex`
+- `Hertz`
+- `MySQL`
+- `Redis`
+- `Docker`
+- `Consul`
+- `OpenTelemetry`
+- `cwgo`
+- `NATS`
+- `GORM`
+- `Prometheus`
+- `K8s`
+
 ## 工具安装
 - `cwgo` 
 

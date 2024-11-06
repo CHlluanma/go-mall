@@ -1,8 +1,19 @@
 services:
-  consul:
-    image: "consul:1.15.4"
+  # consul:
+  #   image: "consul:1.15.4"
+  #   ports:
+  #     - "8500:8500"
+  etcd:
+    image: bitnami/etcd:3.5
     ports:
-      - "8500:8500"
+      - 2379:2379
+      # - 2380:2380
+    volumes:
+      - ./etcd/data:/bitnami/etcd-data
+    environment:
+      - TZ=Asiz/Shanghai
+      - ALLOW_NONE_AUTHENTICATION=yes
+      - ETCD_ADVERTISE_CLIENT_URLS=http://etcd:2379
   mysql:
     image: "mysql:latest"
     ports:
