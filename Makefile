@@ -21,3 +21,8 @@ gen-demo-thrift:
 .PHONY: demo-link-fix
 demo-link-fix:
 	@cd demo/demo_proto && golangci-lint run -E gofumpt --path-prefix=. --fix --timeout=5m
+
+.PHONY: gen-frontend
+gen-frontend:
+	cd app/frontend
+	@cwgo server --type HTTP --idl ../../idl/frontend/home.proto --server_name frontend --module github.com/CHlluanma/go-mall-kitex/app/frontend -I ../../idl
