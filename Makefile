@@ -25,3 +25,11 @@ demo-link-fix:
 .PHONY: gen-frontend
 gen-frontend:
 	@cd app/frontend && cwgo server --type HTTP --idl ../../idl/frontend/auth_page.proto --server_name frontend --module github.com/CHlluanma/go-mall-kitex/app/frontend -I ../../idl
+
+.PHONY: gen-user-client
+gen-user:
+	@cd rpc_gen && cwgo client --type RPC --I ../idl --idl ../idl/rpc/user.proto --module github.com/CHlluanma/go-mall-kitex/rpc_gen --server_name user
+
+.PHONY: gen-user-server
+gen-user-server:
+	@cd app/user && cwgo server --type RPC --I ../../idl --idl ../../idl/rpc/user.proto --module github.com/CHlluanma/go-mall-kitex/app/user --server_name user --pass "-use github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen"

@@ -4,8 +4,8 @@ import (
 	"context"
 
 	auth "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/frontend/auth"
-	common "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/frontend/common"
 	"github.com/cloudwego/hertz/pkg/app"
+	"github.com/hertz-contrib/sessions"
 )
 
 type LoginService struct {
@@ -17,11 +17,21 @@ func NewLoginService(Context context.Context, RequestContext *app.RequestContext
 	return &LoginService{RequestContext: RequestContext, Context: Context}
 }
 
-func (h *LoginService) Run(req *auth.LoginReq) (resp *common.Empty, err error) {
+func (h *LoginService) Run(req *auth.LoginReq) (redirect string, err error) {
 	//defer func() {
 	// hlog.CtxInfof(h.Context, "req = %+v", req)
 	// hlog.CtxInfof(h.Context, "resp = %+v", resp)
 	//}()
-	// todo edit your code
+	session := sessions.Default(h.RequestContext)
+	session.Set("user_id", 1)
+	err = session.Save()
+	if err != nil {
+		return "", err
+	}
+	redirect = "/"
+	if req.Next != "" {
+		redirect = req.Next
+	}
+
 	return
 }
