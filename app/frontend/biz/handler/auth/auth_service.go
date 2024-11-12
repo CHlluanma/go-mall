@@ -1,33 +1,33 @@
-package home
+package auth
 
 import (
 	"context"
 
 	"github.com/CHlluanma/go-mall-kitex/app/frontend/biz/service"
 	"github.com/CHlluanma/go-mall-kitex/app/frontend/biz/utils"
-	home "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/frontend/home"
+	auth "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/frontend/auth"
+	common "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/frontend/common"
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/protocol/consts"
 )
 
-// Home .
-// @router / [GET]
-func Home(ctx context.Context, c *app.RequestContext) {
+// Login .
+// @router /auth/login [POST]
+func Login(ctx context.Context, c *app.RequestContext) {
 	var err error
-	var req home.Empty
+	var req auth.LoginReq
 	err = c.BindAndValidate(&req)
 	if err != nil {
 		utils.SendErrResponse(ctx, c, consts.StatusOK, err)
 		return
 	}
 
-	// resp := &home.Empty{}
-	resp, err := service.NewHomeService(ctx, c).Run(&req)
+	resp := &common.Empty{}
+	resp, err = service.NewLoginService(ctx, c).Run(&req)
 	if err != nil {
 		utils.SendErrResponse(ctx, c, consts.StatusOK, err)
 		return
 	}
 
-	c.HTML(consts.StatusOK, "home", resp)
-	// utils.SendSuccessResponse(ctx, c, consts.StatusOK, resp)
+	utils.SendSuccessResponse(ctx, c, consts.StatusOK, resp)
 }
