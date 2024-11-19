@@ -20,7 +20,9 @@ services:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=demo_proto
+      - MYSQL_DATABASE=go_mall
+    volumes:
+      - ./data/db/sql/ini:/docker-entrypoint-initdb.d
   redis:
     image: "redis:latest"
     ports:

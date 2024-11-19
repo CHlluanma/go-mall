@@ -9,6 +9,7 @@ import (
 
 	"github.com/CHlluanma/go-mall-kitex/app/frontend/biz/router"
 	"github.com/CHlluanma/go-mall-kitex/app/frontend/conf"
+	"github.com/CHlluanma/go-mall-kitex/app/frontend/infra/rpc"
 	"github.com/CHlluanma/go-mall-kitex/app/frontend/middleware"
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/app/middlewares/server/recovery"
@@ -31,6 +32,9 @@ import (
 func main() {
 	// env config
 	_ = godotenv.Load()
+
+	// init rpc
+	rpc.Init()
 
 	// init dal
 	// dal.Init()
