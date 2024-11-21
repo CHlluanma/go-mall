@@ -18,7 +18,7 @@
 - `K8s`
 
 ## 工具安装
-- `cwgo` 
+- `cwgo`
 
 ```bash
 # Go 1.15 及之前版本
@@ -34,3 +34,7 @@ GOPROXY=https://goproxy.cn/,direct go install github.com/cloudwego/cwgo@latest
 - MDN HTTP response status codes：https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status
 - 约定式提交：https://www.conventionalcommits.org/zh-hans/v1.0.0/
 - 语义化版本：https://semver.org/lang/zh-CN/
+
+## 推荐阅读
+
+- [Go语言微服务架构设计](https://time.geekbang.org/column/intro/100)
