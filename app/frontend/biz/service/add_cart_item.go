@@ -5,6 +5,9 @@ import (
 
 	cart "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/frontend/cart"
 	common "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/frontend/common"
+	"github.com/CHlluanma/go-mall-kitex/app/frontend/infra/rpc"
+	frontendUtils "github.com/CHlluanma/go-mall-kitex/app/frontend/utils"
+	rpccart "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/cart"
 	"github.com/cloudwego/hertz/pkg/app"
 )
 
@@ -22,6 +25,15 @@ func (h *AddCartItemService) Run(req *cart.AddCartItemReq) (resp *common.Empty, 
 	// hlog.CtxInfof(h.Context, "req = %+v", req)
 	// hlog.CtxInfof(h.Context, "resp = %+v", resp)
 	//}()
-	// todo edit your code
+	_, err = rpc.CartClient.AddItem(h.Context, &rpccart.AddItemReq{
+		UserId: uint32(frontendUtils.GetUserIdFromCtx(h.Context)),
+		Item: &rpccart.CartItem{
+			ProductId: req.ProductId,
+			Quantity:  uint32(req.ProductNum),
+		},
+	})
+	if err != nil {
+		return nil, err
+	}
 	return
 }
