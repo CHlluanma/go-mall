@@ -6,6 +6,7 @@ import (
 	"github.com/CHlluanma/go-mall-kitex/app/frontend/conf"
 	frontendUtils "github.com/CHlluanma/go-mall-kitex/app/frontend/utils"
 	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/cart/cartservice"
+	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/checkout/checkoutservice"
 	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/product/productcatalogservice"
 	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/user/userservice"
 	"github.com/cloudwego/kitex/client"
@@ -16,6 +17,7 @@ var (
 	UserClient           userservice.Client
 	ProductCatalogClient productcatalogservice.Client
 	CartClient           cartservice.Client
+	CheckoutClient       checkoutservice.Client
 
 	once sync.Once
 )
@@ -25,6 +27,7 @@ func Init() {
 		initUserClient()
 		initProductClient()
 		initCartClient()
+		initCheckoutClient()
 	})
 }
 
@@ -55,5 +58,15 @@ func initCartClient() {
 	opts = append(opts, client.WithResolver(r))
 
 	CartClient, err = cartservice.NewClient("cart", opts...)
+	frontendUtils.MustHandleError(err)
+}
+
+func initCheckoutClient() {
+	var opts []client.Option
+	r, err := etcd.NewEtcdResolver(conf.GetConf().Hertz.RegistryAddress)
+	frontendUtils.MustHandleError(err)
+	opts = append(opts, client.WithResolver(r))
+
+	CheckoutClient, err = checkoutservice.NewClient("checkout", opts...)
 	frontendUtils.MustHandleError(err)
 }

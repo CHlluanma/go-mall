@@ -25,7 +25,7 @@ demo-link-fix:
 
 .PHONY: gen-frontend
 gen-frontend:
-	@cd app/frontend && cwgo server --type HTTP --idl ../../idl/frontend/cart_page.proto --server_name frontend --module github.com/CHlluanma/go-mall-kitex/app/frontend -I ../../idl
+	@cd app/frontend && cwgo server --type HTTP --idl ../../idl/frontend/checkout_page.proto --server_name frontend --module github.com/CHlluanma/go-mall-kitex/app/frontend -I ../../idl
 
 
 .PHONY: gen-user
