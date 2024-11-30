@@ -22,9 +22,11 @@ gen-demo-thrift:
 demo-link-fix:
 	@cd demo/demo_proto && golangci-lint run -E gofumpt --path-prefix=. --fix --timeout=5m
 
+
 .PHONY: gen-frontend
 gen-frontend:
-	@cd app/frontend && cwgo server --type HTTP --idl ../../idl/frontend/product_page.proto --server_name frontend --module github.com/CHlluanma/go-mall-kitex/app/frontend -I ../../idl
+	@cd app/frontend && cwgo server --type HTTP --idl ../../idl/frontend/cart_page.proto --server_name frontend --module github.com/CHlluanma/go-mall-kitex/app/frontend -I ../../idl
+
 
 .PHONY: gen-user-client
 gen-user-client:
@@ -42,3 +44,12 @@ gen-product-client:
 .PHONY: gen-product-server
 gen-product-server:
 	@cd app/product && cwgo server --type RPC --I ../../idl --idl ../../idl/rpc/product.proto --module github.com/CHlluanma/go-mall-kitex/app/product --server_name product --pass "-use github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen"
+
+
+.PHONY: gen-cart-client
+gen-cart-client:
+	@cd rpc_gen && cwgo client --type RPC --I ../idl --idl ../idl/rpc/cart.proto --module github.com/CHlluanma/go-mall-kitex/rpc_gen --server_name cart
+
+.PHONY: gen-cart-server
+gen-cart-server:
+	@cd app/cart && cwgo server --type RPC --I ../../idl --idl ../../idl/rpc/cart.proto --module github.com/CHlluanma/go-mall-kitex/app/cart --server_name cart --pass "-use github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen"
