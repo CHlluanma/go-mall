@@ -19,12 +19,14 @@ var (
 	ProductClient productcatalogservice.Client
 	PaymentClient paymentservice.Client
 	once          sync.Once
-	err           error
+	// err           error
 )
 
 func Init() {
 	once.Do(func() {
-
+		initCartClient()
+		initProductClient()
+		initPaymentClient()
 	})
 }
 
