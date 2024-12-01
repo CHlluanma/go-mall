@@ -25,7 +25,7 @@ demo-link-fix:
 
 .PHONY: gen-frontend
 gen-frontend:
-	@cd app/frontend && cwgo server --type HTTP --idl ../../idl/frontend/checkout_page.proto --server_name frontend --module github.com/CHlluanma/go-mall-kitex/app/frontend -I ../../idl
+	@cd app/frontend && cwgo server --type HTTP --idl ../../idl/frontend/order_page.proto --server_name frontend --module github.com/CHlluanma/go-mall-kitex/app/frontend -I ../../idl
 
 
 .PHONY: gen-user
@@ -86,3 +86,15 @@ gen-checkout-client:
 .PHONY: gen-checkout-server
 gen-checkout-server:
 	@cd app/checkout && cwgo server --type RPC --I ../../idl --idl ../../idl/rpc/checkout.proto --module github.com/CHlluanma/go-mall-kitex/app/checkout --server_name checkout --pass "-use github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen"
+
+
+.PHONY: gen-order
+gen-order: gen-order-client gen-order-server
+
+.PHONY: gen-order-client
+gen-order-client:
+	@cd rpc_gen && cwgo client --type RPC --I ../idl --idl ../idl/rpc/order.proto --module github.com/CHlluanma/go-mall-kitex/rpc_gen --server_name order
+
+.PHONY: gen-order-server
+gen-order-server:
+	@cd app/order && cwgo server --type RPC --I ../../idl --idl ../../idl/rpc/order.proto --module github.com/CHlluanma/go-mall-kitex/app/order --server_name order --pass "-use github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen"
