@@ -3,7 +3,7 @@ package redis
 import (
 	"context"
 
-	"github.com/CHlluanma/go-mall-kitex/app/frontend/conf"
+	"github.com/chhz0/go-mall-kitex/app/frontend/conf"
 	"github.com/redis/go-redis/v9"
 )
 

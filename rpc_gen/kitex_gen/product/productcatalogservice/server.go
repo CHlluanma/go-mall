@@ -2,7 +2,7 @@
 package productcatalogservice
 
 import (
-	product "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/product"
+	product "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/product"
 	server "github.com/cloudwego/kitex/server"
 )
 

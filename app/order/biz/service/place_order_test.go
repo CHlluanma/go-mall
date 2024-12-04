@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 	"testing"
-	order "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/order"
+	order "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/order"
 )
 
 func TestPlaceOrder_Run(t *testing.T) {

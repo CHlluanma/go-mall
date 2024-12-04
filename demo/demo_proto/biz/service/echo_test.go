@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	pdapi "github.com/CHlluanma/go-mall-kitex/demo/demo_proto/kitex_gen/pdapi"
+	pdapi "github.com/chhz0/go-mall-kitex/demo/demo_proto/kitex_gen/pdapi"
 )
 
 func TestEcho_Run(t *testing.T) {

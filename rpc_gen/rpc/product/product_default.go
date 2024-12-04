@@ -2,7 +2,7 @@ package product
 
 import (
 	"context"
-	product "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/product"
+	product "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/product"
 	"github.com/cloudwego/kitex/client/callopt"
 	"github.com/cloudwego/kitex/pkg/klog"
 )

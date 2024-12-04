@@ -3,9 +3,9 @@ package service
 import (
 	"context"
 
-	"github.com/CHlluanma/go-mall-kitex/app/user/biz/dal/mysql"
-	"github.com/CHlluanma/go-mall-kitex/app/user/biz/model"
-	user "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/user"
+	"github.com/chhz0/go-mall-kitex/app/user/biz/dal/mysql"
+	"github.com/chhz0/go-mall-kitex/app/user/biz/model"
+	user "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/user"
 	"github.com/pkg/errors"
 	"golang.org/x/crypto/bcrypt"
 )

@@ -3,7 +3,7 @@
 package order
 
 import (
-	"github.com/CHlluanma/go-mall-kitex/app/frontend/middleware"
+	"github.com/chhz0/go-mall-kitex/app/frontend/middleware"
 	"github.com/cloudwego/hertz/pkg/app"
 )
 

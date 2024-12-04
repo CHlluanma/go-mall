@@ -3,7 +3,7 @@
 package category
 
 import (
-	category "github.com/CHlluanma/go-mall-kitex/app/frontend/biz/handler/category"
+	category "github.com/chhz0/go-mall-kitex/app/frontend/biz/handler/category"
 	"github.com/cloudwego/hertz/pkg/app/server"
 )
 

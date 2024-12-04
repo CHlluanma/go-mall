@@ -3,7 +3,7 @@
 package home
 
 import (
-	home "github.com/CHlluanma/go-mall-kitex/app/frontend/biz/handler/home"
+	home "github.com/chhz0/go-mall-kitex/app/frontend/biz/handler/home"
 	"github.com/cloudwego/hertz/pkg/app/server"
 )
 

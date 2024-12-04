@@ -3,13 +3,13 @@ package rpc
 import (
 	"sync"
 
-	"github.com/CHlluanma/go-mall-kitex/app/frontend/conf"
-	frontendUtils "github.com/CHlluanma/go-mall-kitex/app/frontend/utils"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/cart/cartservice"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/checkout/checkoutservice"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/order/orderservice"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/product/productcatalogservice"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/user/userservice"
+	"github.com/chhz0/go-mall-kitex/app/frontend/conf"
+	frontendUtils "github.com/chhz0/go-mall-kitex/app/frontend/utils"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/cart/cartservice"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/checkout/checkoutservice"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/order/orderservice"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/product/productcatalogservice"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/user/userservice"
 	"github.com/cloudwego/kitex/client"
 	etcd "github.com/kitex-contrib/registry-etcd"
 )

@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
-	product "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/product"
-	"github.com/CHlluanma/go-mall-kitex/app/product/biz/service"
+	product "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/product"
+	"github.com/chhz0/go-mall-kitex/app/product/biz/service"
 )
 
 // ProductCatalogServiceImpl implements the last service interface defined in the IDL.

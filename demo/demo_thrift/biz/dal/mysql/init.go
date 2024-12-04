@@ -1,7 +1,7 @@
 package mysql
 
 import (
-	"github.com/CHlluanma/go-mall-kitex/demo/demo_thrift/conf"
+	"github.com/chhz0/go-mall-kitex/demo/demo_thrift/conf"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

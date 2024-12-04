@@ -3,7 +3,7 @@
 package checkout
 
 import (
-	checkout "github.com/CHlluanma/go-mall-kitex/app/frontend/biz/handler/checkout"
+	checkout "github.com/chhz0/go-mall-kitex/app/frontend/biz/handler/checkout"
 	"github.com/cloudwego/hertz/pkg/app/server"
 )
 

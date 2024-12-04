@@ -1,4 +1,4 @@
-module github.com/CHlluanma/go-mall-kitex/rpc_gen
+module github.com/chhz0/go-mall-kitex/rpc_gen
 
 go 1.23.2
 

@@ -3,11 +3,11 @@ package service
 import (
 	"context"
 
-	cart "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/frontend/cart"
-	common "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/frontend/common"
-	"github.com/CHlluanma/go-mall-kitex/app/frontend/infra/rpc"
-	frontendUtils "github.com/CHlluanma/go-mall-kitex/app/frontend/utils"
-	rpccart "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/cart"
+	cart "github.com/chhz0/go-mall-kitex/app/frontend/hertz_gen/frontend/cart"
+	common "github.com/chhz0/go-mall-kitex/app/frontend/hertz_gen/frontend/common"
+	"github.com/chhz0/go-mall-kitex/app/frontend/infra/rpc"
+	frontendUtils "github.com/chhz0/go-mall-kitex/app/frontend/utils"
+	rpccart "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/cart"
 	"github.com/cloudwego/hertz/pkg/app"
 )
 

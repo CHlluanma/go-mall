@@ -3,7 +3,7 @@
 package product
 
 import (
-	product "github.com/CHlluanma/go-mall-kitex/app/frontend/biz/handler/product"
+	product "github.com/chhz0/go-mall-kitex/app/frontend/biz/handler/product"
 	"github.com/cloudwego/hertz/pkg/app/server"
 )
 

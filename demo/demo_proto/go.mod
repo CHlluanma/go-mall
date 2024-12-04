@@ -1,4 +1,4 @@
-module github.com/CHlluanma/go-mall-kitex/demo/demo_proto
+module github.com/chhz0/go-mall-kitex/demo/demo_proto
 
 go 1.23.2
 

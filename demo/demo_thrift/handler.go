@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
-	"github.com/CHlluanma/go-mall-kitex/demo/demo_thrift/biz/service"
-	api "github.com/CHlluanma/go-mall-kitex/demo/demo_thrift/kitex_gen/api"
+	"github.com/chhz0/go-mall-kitex/demo/demo_thrift/biz/service"
+	api "github.com/chhz0/go-mall-kitex/demo/demo_thrift/kitex_gen/api"
 )
 
 // EchoImpl implements the last service interface defined in the IDL.

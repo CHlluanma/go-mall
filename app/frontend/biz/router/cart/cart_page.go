@@ -3,7 +3,7 @@
 package cart
 
 import (
-	cart "github.com/CHlluanma/go-mall-kitex/app/frontend/biz/handler/cart"
+	cart "github.com/chhz0/go-mall-kitex/app/frontend/biz/handler/cart"
 	"github.com/cloudwego/hertz/pkg/app/server"
 )
 

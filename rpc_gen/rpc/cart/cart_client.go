@@ -2,9 +2,9 @@ package cart
 
 import (
 	"context"
-	cart "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/cart"
+	cart "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/cart"
 
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/cart/cartservice"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/cart/cartservice"
 	"github.com/cloudwego/kitex/client"
 	"github.com/cloudwego/kitex/client/callopt"
 )

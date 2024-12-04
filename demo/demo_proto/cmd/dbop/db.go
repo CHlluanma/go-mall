@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/CHlluanma/go-mall-kitex/demo/demo_proto/biz/dal"
-	"github.com/CHlluanma/go-mall-kitex/demo/demo_proto/biz/dal/model"
-	"github.com/CHlluanma/go-mall-kitex/demo/demo_proto/biz/dal/mysql"
+	"github.com/chhz0/go-mall-kitex/demo/demo_proto/biz/dal"
+	"github.com/chhz0/go-mall-kitex/demo/demo_proto/biz/dal/model"
+	"github.com/chhz0/go-mall-kitex/demo/demo_proto/biz/dal/mysql"
 	"github.com/joho/godotenv"
 )
 

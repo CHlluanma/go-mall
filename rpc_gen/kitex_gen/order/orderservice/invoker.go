@@ -3,7 +3,7 @@
 package orderservice
 
 import (
-	order "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/order"
+	order "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/order"
 	server "github.com/cloudwego/kitex/server"
 )
 

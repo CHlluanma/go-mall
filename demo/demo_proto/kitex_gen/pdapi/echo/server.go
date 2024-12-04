@@ -2,7 +2,7 @@
 package echo
 
 import (
-	pdapi "github.com/CHlluanma/go-mall-kitex/demo/demo_proto/kitex_gen/pdapi"
+	pdapi "github.com/chhz0/go-mall-kitex/demo/demo_proto/kitex_gen/pdapi"
 	server "github.com/cloudwego/kitex/server"
 )
 

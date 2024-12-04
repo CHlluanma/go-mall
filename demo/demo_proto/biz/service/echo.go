@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	pdapi "github.com/CHlluanma/go-mall-kitex/demo/demo_proto/kitex_gen/pdapi"
+	pdapi "github.com/chhz0/go-mall-kitex/demo/demo_proto/kitex_gen/pdapi"
 	"github.com/bytedance/gopkg/cloud/metainfo"
 	"github.com/cloudwego/kitex/pkg/kerrors"
 )

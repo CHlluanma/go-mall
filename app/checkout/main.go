@@ -4,9 +4,9 @@ import (
 	"net"
 	"time"
 
-	"github.com/CHlluanma/go-mall-kitex/app/checkout/conf"
-	"github.com/CHlluanma/go-mall-kitex/app/checkout/infra/rpc"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/checkout/checkoutservice"
+	"github.com/chhz0/go-mall-kitex/app/checkout/conf"
+	"github.com/chhz0/go-mall-kitex/app/checkout/infra/rpc"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/checkout/checkoutservice"
 	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/cloudwego/kitex/pkg/rpcinfo"
 	"github.com/cloudwego/kitex/server"

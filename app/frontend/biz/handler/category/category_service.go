@@ -3,9 +3,9 @@ package category
 import (
 	"context"
 
-	"github.com/CHlluanma/go-mall-kitex/app/frontend/biz/service"
-	"github.com/CHlluanma/go-mall-kitex/app/frontend/biz/utils"
-	category "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/frontend/category"
+	"github.com/chhz0/go-mall-kitex/app/frontend/biz/service"
+	"github.com/chhz0/go-mall-kitex/app/frontend/biz/utils"
+	category "github.com/chhz0/go-mall-kitex/app/frontend/hertz_gen/frontend/category"
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/protocol/consts"
 )

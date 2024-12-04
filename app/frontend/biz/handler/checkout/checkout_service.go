@@ -3,10 +3,10 @@ package checkout
 import (
 	"context"
 
-	"github.com/CHlluanma/go-mall-kitex/app/frontend/biz/service"
-	"github.com/CHlluanma/go-mall-kitex/app/frontend/biz/utils"
-	checkout "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/frontend/checkout"
-	common "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/frontend/common"
+	"github.com/chhz0/go-mall-kitex/app/frontend/biz/service"
+	"github.com/chhz0/go-mall-kitex/app/frontend/biz/utils"
+	checkout "github.com/chhz0/go-mall-kitex/app/frontend/hertz_gen/frontend/checkout"
+	common "github.com/chhz0/go-mall-kitex/app/frontend/hertz_gen/frontend/common"
 	"github.com/cloudwego/hertz/pkg/app"
 	hertzUtils "github.com/cloudwego/hertz/pkg/common/utils"
 	"github.com/cloudwego/hertz/pkg/protocol/consts"

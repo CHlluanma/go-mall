@@ -3,11 +3,11 @@ package service
 import (
 	"context"
 
-	checkout "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/frontend/checkout"
-	"github.com/CHlluanma/go-mall-kitex/app/frontend/infra/rpc"
-	frontendUtils "github.com/CHlluanma/go-mall-kitex/app/frontend/utils"
-	rpccheckout "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/checkout"
-	rpcpayment "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/payment"
+	checkout "github.com/chhz0/go-mall-kitex/app/frontend/hertz_gen/frontend/checkout"
+	"github.com/chhz0/go-mall-kitex/app/frontend/infra/rpc"
+	frontendUtils "github.com/chhz0/go-mall-kitex/app/frontend/utils"
+	rpccheckout "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/checkout"
+	rpcpayment "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/payment"
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/common/utils"
 )

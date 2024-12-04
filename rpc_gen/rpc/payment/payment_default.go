@@ -2,7 +2,7 @@ package payment
 
 import (
 	"context"
-	payment "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/payment"
+	payment "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/payment"
 	"github.com/cloudwego/kitex/client/callopt"
 	"github.com/cloudwego/kitex/pkg/klog"
 )

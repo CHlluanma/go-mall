@@ -4,7 +4,7 @@ package echo
 
 import (
 	"context"
-	pdapi "github.com/CHlluanma/go-mall-kitex/demo/demo_proto/kitex_gen/pdapi"
+	pdapi "github.com/chhz0/go-mall-kitex/demo/demo_proto/kitex_gen/pdapi"
 	client "github.com/cloudwego/kitex/client"
 	callopt "github.com/cloudwego/kitex/client/callopt"
 )

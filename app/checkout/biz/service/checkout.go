@@ -3,11 +3,11 @@ package service
 import (
 	"context"
 
-	"github.com/CHlluanma/go-mall-kitex/app/checkout/infra/rpc"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/cart"
-	checkout "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/checkout"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/payment"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/product"
+	"github.com/chhz0/go-mall-kitex/app/checkout/infra/rpc"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/cart"
+	checkout "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/checkout"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/payment"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/product"
 	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/google/uuid"

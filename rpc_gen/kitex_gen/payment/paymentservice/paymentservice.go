@@ -5,7 +5,7 @@ package paymentservice
 import (
 	"context"
 	"errors"
-	payment "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/payment"
+	payment "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/payment"
 	client "github.com/cloudwego/kitex/client"
 	kitex "github.com/cloudwego/kitex/pkg/serviceinfo"
 	streaming "github.com/cloudwego/kitex/pkg/streaming"

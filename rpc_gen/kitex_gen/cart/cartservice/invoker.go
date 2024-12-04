@@ -3,7 +3,7 @@
 package cartservice
 
 import (
-	cart "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/cart"
+	cart "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/cart"
 	server "github.com/cloudwego/kitex/server"
 )
 

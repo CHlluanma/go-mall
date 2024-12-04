@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/CHlluanma/go-mall-kitex/app/checkout/conf"
+	"github.com/chhz0/go-mall-kitex/app/checkout/conf"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

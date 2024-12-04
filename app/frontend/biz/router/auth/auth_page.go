@@ -3,7 +3,7 @@
 package auth
 
 import (
-	auth "github.com/CHlluanma/go-mall-kitex/app/frontend/biz/handler/auth"
+	auth "github.com/chhz0/go-mall-kitex/app/frontend/biz/handler/auth"
 	"github.com/cloudwego/hertz/pkg/app/server"
 )
 

@@ -3,9 +3,9 @@ package service
 import (
 	"context"
 
-	"github.com/CHlluanma/go-mall-kitex/app/product/biz/dal/mysql"
-	"github.com/CHlluanma/go-mall-kitex/app/product/biz/model"
-	product "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/product"
+	"github.com/chhz0/go-mall-kitex/app/product/biz/dal/mysql"
+	"github.com/chhz0/go-mall-kitex/app/product/biz/model"
+	product "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/product"
 )
 
 type ListProductsService struct {

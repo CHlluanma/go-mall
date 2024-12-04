@@ -3,7 +3,7 @@ package middleware
 import (
 	"context"
 
-	frontendUtils "github.com/CHlluanma/go-mall-kitex/app/frontend/utils"
+	frontendUtils "github.com/chhz0/go-mall-kitex/app/frontend/utils"
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/hertz-contrib/sessions"
 )

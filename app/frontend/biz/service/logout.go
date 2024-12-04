@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 
-	common "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/frontend/common"
+	common "github.com/chhz0/go-mall-kitex/app/frontend/hertz_gen/frontend/common"
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/hertz-contrib/sessions"
 )

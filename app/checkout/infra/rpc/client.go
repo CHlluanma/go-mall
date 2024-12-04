@@ -3,10 +3,10 @@ package rpc
 import (
 	"sync"
 
-	"github.com/CHlluanma/go-mall-kitex/app/checkout/conf"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/cart/cartservice"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/payment/paymentservice"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/product/productcatalogservice"
+	"github.com/chhz0/go-mall-kitex/app/checkout/conf"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/cart/cartservice"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/payment/paymentservice"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/product/productcatalogservice"
 	"github.com/cloudwego/kitex/client"
 	"github.com/cloudwego/kitex/pkg/rpcinfo"
 	"github.com/cloudwego/kitex/pkg/transmeta"

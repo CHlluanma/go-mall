@@ -4,9 +4,9 @@ import (
 	"net"
 	"time"
 
-	"github.com/CHlluanma/go-mall-kitex/app/payment/biz/dal"
-	"github.com/CHlluanma/go-mall-kitex/app/payment/conf"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/payment/paymentservice"
+	"github.com/chhz0/go-mall-kitex/app/payment/biz/dal"
+	"github.com/chhz0/go-mall-kitex/app/payment/conf"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/payment/paymentservice"
 	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/cloudwego/kitex/pkg/rpcinfo"
 	"github.com/cloudwego/kitex/server"
@@ -51,7 +51,7 @@ func kitexInit() (opts []server.Option) {
 		klog.Fatal(err)
 	}
 	opts = append(opts, server.WithRegistry(r))
-	
+
 	// klog
 	logger := kitexlogrus.NewLogger()
 	klog.SetLogger(logger)

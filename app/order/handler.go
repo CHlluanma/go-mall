@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
-	order "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/order"
-	"github.com/CHlluanma/go-mall-kitex/app/order/biz/service"
+	order "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/order"
+	"github.com/chhz0/go-mall-kitex/app/order/biz/service"
 )
 
 // OrderServiceImpl implements the last service interface defined in the IDL.

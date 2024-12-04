@@ -4,12 +4,12 @@ import (
 	"context"
 	"time"
 
-	common "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/frontend/common"
-	"github.com/CHlluanma/go-mall-kitex/app/frontend/infra/rpc"
-	"github.com/CHlluanma/go-mall-kitex/app/frontend/types"
-	frontendUtils "github.com/CHlluanma/go-mall-kitex/app/frontend/utils"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/order"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/product"
+	common "github.com/chhz0/go-mall-kitex/app/frontend/hertz_gen/frontend/common"
+	"github.com/chhz0/go-mall-kitex/app/frontend/infra/rpc"
+	"github.com/chhz0/go-mall-kitex/app/frontend/types"
+	frontendUtils "github.com/chhz0/go-mall-kitex/app/frontend/utils"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/order"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/product"
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/common/utils"
 )

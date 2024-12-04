@@ -5,9 +5,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/CHlluanma/go-mall-kitex/demo/demo_proto/conf"
-	"github.com/CHlluanma/go-mall-kitex/demo/demo_proto/kitex_gen/pdapi"
-	"github.com/CHlluanma/go-mall-kitex/demo/demo_proto/kitex_gen/pdapi/echo"
+	"github.com/chhz0/go-mall-kitex/demo/demo_proto/conf"
+	"github.com/chhz0/go-mall-kitex/demo/demo_proto/kitex_gen/pdapi"
+	"github.com/chhz0/go-mall-kitex/demo/demo_proto/kitex_gen/pdapi/echo"
 	"github.com/bytedance/gopkg/cloud/metainfo"
 	"github.com/cloudwego/kitex/client"
 	"github.com/cloudwego/kitex/pkg/kerrors"

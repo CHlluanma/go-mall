@@ -3,13 +3,13 @@
 package router
 
 import (
-	auth "github.com/CHlluanma/go-mall-kitex/app/frontend/biz/router/auth"
-	cart "github.com/CHlluanma/go-mall-kitex/app/frontend/biz/router/cart"
-	category "github.com/CHlluanma/go-mall-kitex/app/frontend/biz/router/category"
-	checkout "github.com/CHlluanma/go-mall-kitex/app/frontend/biz/router/checkout"
-	home "github.com/CHlluanma/go-mall-kitex/app/frontend/biz/router/home"
-	order "github.com/CHlluanma/go-mall-kitex/app/frontend/biz/router/order"
-	product "github.com/CHlluanma/go-mall-kitex/app/frontend/biz/router/product"
+	auth "github.com/chhz0/go-mall-kitex/app/frontend/biz/router/auth"
+	cart "github.com/chhz0/go-mall-kitex/app/frontend/biz/router/cart"
+	category "github.com/chhz0/go-mall-kitex/app/frontend/biz/router/category"
+	checkout "github.com/chhz0/go-mall-kitex/app/frontend/biz/router/checkout"
+	home "github.com/chhz0/go-mall-kitex/app/frontend/biz/router/home"
+	order "github.com/chhz0/go-mall-kitex/app/frontend/biz/router/order"
+	product "github.com/chhz0/go-mall-kitex/app/frontend/biz/router/product"
 	"github.com/cloudwego/hertz/pkg/app/server"
 )
 

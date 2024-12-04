@@ -3,10 +3,10 @@ package service
 import (
 	"context"
 
-	"github.com/CHlluanma/go-mall-kitex/app/order/biz/dal/mysql"
-	"github.com/CHlluanma/go-mall-kitex/app/order/biz/model"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/cart"
-	order "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/order"
+	"github.com/chhz0/go-mall-kitex/app/order/biz/dal/mysql"
+	"github.com/chhz0/go-mall-kitex/app/order/biz/model"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/cart"
+	order "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/order"
 	"github.com/cloudwego/kitex/pkg/kerrors"
 )
 

@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/redis/go-redis/v9"
-	"github.com/CHlluanma/go-mall-kitex/app/order/conf"
+	"github.com/chhz0/go-mall-kitex/app/order/conf"
 )
 
 var (

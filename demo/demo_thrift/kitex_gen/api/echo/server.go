@@ -2,7 +2,7 @@
 package echo
 
 import (
-	api "github.com/CHlluanma/go-mall-kitex/demo/demo_thrift/kitex_gen/api"
+	api "github.com/chhz0/go-mall-kitex/demo/demo_thrift/kitex_gen/api"
 	server "github.com/cloudwego/kitex/server"
 )
 

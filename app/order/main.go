@@ -4,9 +4,9 @@ import (
 	"net"
 	"time"
 
-	"github.com/CHlluanma/go-mall-kitex/app/order/biz/dal"
-	"github.com/CHlluanma/go-mall-kitex/app/order/conf"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/order/orderservice"
+	"github.com/chhz0/go-mall-kitex/app/order/biz/dal"
+	"github.com/chhz0/go-mall-kitex/app/order/conf"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/order/orderservice"
 	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/cloudwego/kitex/pkg/rpcinfo"
 	"github.com/cloudwego/kitex/server"

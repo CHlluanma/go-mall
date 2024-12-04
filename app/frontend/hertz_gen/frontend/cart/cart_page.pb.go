@@ -7,8 +7,8 @@
 package cart
 
 import (
-	_ "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/api"
-	common "github.com/CHlluanma/go-mall-kitex/app/frontend/hertz_gen/frontend/common"
+	_ "github.com/chhz0/go-mall-kitex/app/frontend/hertz_gen/api"
+	common "github.com/chhz0/go-mall-kitex/app/frontend/hertz_gen/frontend/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

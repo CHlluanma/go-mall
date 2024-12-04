@@ -2,7 +2,7 @@
 package paymentservice
 
 import (
-	payment "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/payment"
+	payment "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/payment"
 	server "github.com/cloudwego/kitex/server"
 )
 

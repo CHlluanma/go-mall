@@ -4,7 +4,7 @@ package checkout
 
 import (
 	fmt "fmt"
-	payment "github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/payment"
+	payment "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/payment"
 	fastpb "github.com/cloudwego/fastpb"
 )
 

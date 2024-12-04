@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/CHlluanma/go-mall-kitex/app/user/biz/model"
-	"github.com/CHlluanma/go-mall-kitex/app/user/conf"
+	"github.com/chhz0/go-mall-kitex/app/user/biz/model"
+	"github.com/chhz0/go-mall-kitex/app/user/conf"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

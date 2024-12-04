@@ -1,4 +1,4 @@
-module github.com/CHlluanma/go-mall-kitex/hello_world
+module github.com/chhz0/go-mall-kitex/hello_world
 
 go 1.23.2
 

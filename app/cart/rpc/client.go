@@ -3,9 +3,9 @@ package rpc
 import (
 	"sync"
 
-	"github.com/CHlluanma/go-mall-kitex/app/cart/conf"
-	cartUtils "github.com/CHlluanma/go-mall-kitex/app/cart/utils"
-	"github.com/CHlluanma/go-mall-kitex/rpc_gen/kitex_gen/product/productcatalogservice"
+	"github.com/chhz0/go-mall-kitex/app/cart/conf"
+	cartUtils "github.com/chhz0/go-mall-kitex/app/cart/utils"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/product/productcatalogservice"
 	"github.com/cloudwego/kitex/client"
 	etcd "github.com/kitex-contrib/registry-etcd"
 )
