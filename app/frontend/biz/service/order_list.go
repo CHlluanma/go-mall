@@ -24,10 +24,10 @@ func NewOrderListService(Context context.Context, RequestContext *app.RequestCon
 }
 
 func (h *OrderListService) Run(req *common.Empty) (resp map[string]any, err error) {
-	//defer func() {
-	// hlog.CtxInfof(h.Context, "req = %+v", req)
-	// hlog.CtxInfof(h.Context, "resp = %+v", resp)
-	//}()
+	// defer func() {
+	// 	hlog.CtxInfof(h.Context, "req = %+v", req)
+	// 	hlog.CtxInfof(h.Context, "resp = %+v", resp)
+	// }()
 	userId := frontendUtils.GetUserIdFromCtx(h.Context)
 	orderResp, err := rpc.OrderClient.ListOrders(h.Context, &order.ListOrdersReq{UserId: uint32(userId)})
 	if err != nil {
@@ -52,6 +52,7 @@ func (h *OrderListService) Run(req *common.Empty) (resp map[string]any, err erro
 			p := productResp.Product
 
 			items = append(items, types.OrderItem{
+				ProductId:   i.ProductId,
 				ProductName: p.Name,
 				Picture:     p.Picture,
 				Cost:        item.Cost,
@@ -64,6 +65,7 @@ func (h *OrderListService) Run(req *common.Empty) (resp map[string]any, err erro
 			CreatedDate: created.Format("2006-01-02 15:04:05"),
 			Cost:        total,
 			Items:       items,
+			Consignee:   types.Consignee{Email: v.Email},
 		})
 	}
 

@@ -4,17 +4,28 @@ import (
 	"net"
 	"time"
 
+	"github.com/chhz0/go-mall-kitex/app/email/biz/consumer"
+	"github.com/chhz0/go-mall-kitex/app/email/conf"
+	"github.com/chhz0/go-mall-kitex/app/email/infra/mq"
+	"github.com/chhz0/go-mall-kitex/common/mtl"
+	"github.com/chhz0/go-mall-kitex/common/serversuite"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/email/emailservice"
 	"github.com/cloudwego/kitex/pkg/klog"
-	"github.com/cloudwego/kitex/pkg/rpcinfo"
 	"github.com/cloudwego/kitex/server"
 	kitexlogrus "github.com/kitex-contrib/obs-opentelemetry/logging/logrus"
-	"github.com/chhz0/go-mall-kitex/app/email/conf"
-	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/email/emailservice"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
+var (
+	ServiceName  = conf.GetConf().Kitex.Service
+	RegistryAddr = conf.GetConf().Registry.RegistryAddress
+)
+
 func main() {
+	mtl.InitMetrics(ServiceName, conf.GetConf().Kitex.MetricsPort, RegistryAddr[0])
+	mq.Init()
+	consumer.Init()
 	opts := kitexInit()
 
 	svr := emailservice.NewServer(new(EmailServiceImpl), opts...)
@@ -31,12 +42,12 @@ func kitexInit() (opts []server.Option) {
 	if err != nil {
 		panic(err)
 	}
-	opts = append(opts, server.WithServiceAddr(addr))
-
-	// service info
-	opts = append(opts, server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{
-		ServiceName: conf.GetConf().Kitex.Service,
-	}))
+	opts = append(opts, server.WithServiceAddr(addr), server.WithSuite(
+		serversuite.CommonServerSuite{
+			CurrentServiceName: ServiceName,
+			RegisterAddr:       RegistryAddr[0],
+		},
+	))
 
 	// klog
 	logger := kitexlogrus.NewLogger()

@@ -1,6 +1,7 @@
 hertz:
   service: "frontend"
   address: ":8080"
+  metrics_port: "9090"
   enable_pprof: true
   enable_gzip: true
   enable_access_log: true
@@ -10,7 +11,7 @@ hertz:
   log_max_age: 3
   log_max_backups: 50
   registry_address:
-    - "127.0.0.1:2379"
+    - "127.0.0.1:8500"
 
 mysql:
   dsn: "gorm:gorm@tcp(127.0.0.1:3306)/gorm?charset=utf8mb4&parseTime=True&loc=Local"

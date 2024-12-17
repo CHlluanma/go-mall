@@ -6,19 +6,26 @@ import (
 
 	"github.com/chhz0/go-mall-kitex/app/order/biz/dal"
 	"github.com/chhz0/go-mall-kitex/app/order/conf"
+	"github.com/chhz0/go-mall-kitex/common/mtl"
+	"github.com/chhz0/go-mall-kitex/common/serversuite"
 	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/order/orderservice"
 	"github.com/cloudwego/kitex/pkg/klog"
-	"github.com/cloudwego/kitex/pkg/rpcinfo"
 	"github.com/cloudwego/kitex/server"
 	"github.com/joho/godotenv"
 	kitexlogrus "github.com/kitex-contrib/obs-opentelemetry/logging/logrus"
-	etcd "github.com/kitex-contrib/registry-etcd"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
+var (
+	ServiceName  = conf.GetConf().Kitex.Service
+	RegistryAddr = conf.GetConf().Registry.RegistryAddress
+)
+
 func main() {
 	_ = godotenv.Load()
+
+	mtl.InitMetrics(ServiceName, conf.GetConf().Kitex.MetricsPort, RegistryAddr[0])
 	dal.Init()
 	opts := kitexInit()
 
@@ -36,19 +43,10 @@ func kitexInit() (opts []server.Option) {
 	if err != nil {
 		panic(err)
 	}
-	opts = append(opts, server.WithServiceAddr(addr))
-
-	// service info
-	opts = append(opts, server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{
-		ServiceName: conf.GetConf().Kitex.Service,
+	opts = append(opts, server.WithServiceAddr(addr), server.WithSuite(serversuite.CommonServerSuite{
+		CurrentServiceName: ServiceName,
+		RegisterAddr:       RegistryAddr[0],
 	}))
-
-	// etcd
-	r, err := etcd.NewEtcdRegistry(conf.GetConf().Registry.RegistryAddress)
-	if err != nil {
-		klog.Fatal(err)
-	}
-	opts = append(opts, server.WithRegistry(r))
 
 	// klog
 	logger := kitexlogrus.NewLogger()

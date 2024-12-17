@@ -3,14 +3,20 @@ package service
 import (
 	"context"
 
+	"github.com/chhz0/go-mall-kitex/app/checkout/infra/mq"
 	"github.com/chhz0/go-mall-kitex/app/checkout/infra/rpc"
 	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/cart"
 	checkout "github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/checkout"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/email"
+	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/order"
 	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/payment"
 	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/product"
 	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/cloudwego/kitex/pkg/klog"
-	"github.com/google/uuid"
+	"github.com/nats-io/nats.go"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/propagation"
+	"google.golang.org/protobuf/proto"
 )
 
 type CheckoutService struct {
@@ -27,15 +33,17 @@ func (s *CheckoutService) Run(req *checkout.CheckoutReq) (resp *checkout.Checkou
 	if err != nil {
 		return nil, kerrors.NewGRPCBizStatusError(5005001, err.Error())
 	}
-	if cartResp == nil || cartResp.Items == nil {
+	if cartResp == nil || cartResp.Items == nil || len(cartResp.Items) == 0 {
 		return nil, kerrors.NewGRPCBizStatusError(5004001, "cart is empty")
 	}
 
+	var oi []*order.OrderItem
 	var total float32
 
 	for _, carItem := range cartResp.Items {
 		productResp, err := rpc.ProductClient.GetProduct(s.ctx, &product.GetProductReq{Id: carItem.ProductId})
 		if err != nil {
+			klog.Error(err)
 			return nil, err
 		}
 
@@ -47,10 +55,49 @@ func (s *CheckoutService) Run(req *checkout.CheckoutReq) (resp *checkout.Checkou
 
 		cost := p * float32(carItem.Quantity)
 		total += cost
+		oi = append(oi, &order.OrderItem{
+			Item: &cart.CartItem{
+				ProductId: carItem.ProductId,
+				Quantity:  carItem.Quantity,
+			},
+			Cost: cost,
+		})
 	}
 
-	u, _ := uuid.NewRandom()
-	orderId := u.String()
+	orderReq := &order.PlaceOrderReq{
+		UserId: req.UserId,
+		Items:  oi,
+		Email:  req.Email,
+	}
+
+	if req.Address != nil {
+		orderReq.Address = &order.Address{
+			StreetAddress: req.Address.StreetAddress,
+			City:          req.Address.City,
+			State:         req.Address.State,
+			Country:       req.Address.Country,
+			ZipCode:       req.Address.ZipCode,
+		}
+	}
+
+	orderResp, err := rpc.OrderClient.PlaceOrder(s.ctx, orderReq)
+	if err != nil {
+		klog.Error(err.Error())
+		return nil, err
+	}
+	// empty cart
+	emptyCartResp, err := rpc.CartClient.EmptyCart(s.ctx, &cart.EmptyCartReq{UserId: req.UserId})
+	if err != nil {
+		klog.Error(err.Error())
+		return nil, err
+	}
+
+	klog.Info(emptyCartResp)
+
+	var orderId string
+	if orderResp != nil || orderResp.Order != nil {
+		orderId = orderResp.Order.OrderId
+	}
 
 	payReq := &payment.ChargeReq{
 		UserId:  req.UserId,
@@ -73,6 +120,19 @@ func (s *CheckoutService) Run(req *checkout.CheckoutReq) (resp *checkout.Checkou
 	if err != nil {
 		return nil, err
 	}
+
+	data, _ := proto.Marshal(&email.EmailReq{
+		From:        "from@eamil.com",
+		To:          req.Email,
+		ContentType: "text/plain",
+		Subject:     "Order Confirmation",
+		Content:     "Your order has been confirmed",
+	})
+
+	msg := &nats.Msg{Subject: "email", Data: data, Header: make(nats.Header)}
+	otel.GetTextMapPropagator().Inject(s.ctx, propagation.HeaderCarrier(msg.Header))
+
+	_ = mq.Nc.PublishMsg(msg)
 
 	klog.Info(paymentResp)
 

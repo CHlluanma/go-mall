@@ -38,3 +38,6 @@ GOPROXY=https://goproxy.cn/,direct go install github.com/cloudwego/cwgo@latest
 ## 推荐阅读
 
 - [Go语言微服务架构设计](https://time.geekbang.org/column/intro/100)
+
+> check out etcd registry server
+> etcdctl get --prefix ""

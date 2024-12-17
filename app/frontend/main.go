@@ -11,6 +11,8 @@ import (
 	"github.com/chhz0/go-mall-kitex/app/frontend/conf"
 	"github.com/chhz0/go-mall-kitex/app/frontend/infra/rpc"
 	"github.com/chhz0/go-mall-kitex/app/frontend/middleware"
+	frontendUtils "github.com/chhz0/go-mall-kitex/app/frontend/utils"
+	"github.com/chhz0/go-mall-kitex/common/mtl"
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/app/middlewares/server/recovery"
 	"github.com/cloudwego/hertz/pkg/app/server"
@@ -21,6 +23,7 @@ import (
 	"github.com/hertz-contrib/gzip"
 	"github.com/hertz-contrib/logger/accesslog"
 	hertzlogrus "github.com/hertz-contrib/logger/logrus"
+	hertzprom "github.com/hertz-contrib/monitor-prometheus"
 	"github.com/hertz-contrib/pprof"
 	"github.com/hertz-contrib/sessions"
 	"github.com/hertz-contrib/sessions/redis"
@@ -29,17 +32,28 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
+var (
+	serviceName  = frontendUtils.ServiceName
+	metricsPort  = conf.GetConf().Hertz.MetricsPort
+	registryAddr = conf.GetConf().Hertz.RegistryAddress
+)
+
 func main() {
 	// env config
 	_ = godotenv.Load()
 
-	// init rpc
+	mtl.InitMetrics(serviceName, metricsPort, registryAddr[0])
+	mtl.InitTracing(serviceName)
 	rpc.Init()
 
-	// init dal
-	// dal.Init()
 	address := conf.GetConf().Hertz.Address
-	h := server.New(server.WithHostPorts(address))
+
+	h := server.New(server.WithHostPorts(address),
+		server.WithTracer(hertzprom.NewServerTracer("", "",
+			hertzprom.WithDisableServer(true),
+			hertzprom.WithRegistry(mtl.Registry),
+		)),
+	)
 
 	registerMiddleware(h)
 

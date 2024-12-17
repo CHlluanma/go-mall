@@ -5,20 +5,27 @@ import (
 	"time"
 
 	"github.com/chhz0/go-mall-kitex/app/checkout/conf"
+	"github.com/chhz0/go-mall-kitex/app/checkout/infra/mq"
 	"github.com/chhz0/go-mall-kitex/app/checkout/infra/rpc"
+	"github.com/chhz0/go-mall-kitex/common/mtl"
 	"github.com/chhz0/go-mall-kitex/rpc_gen/kitex_gen/checkout/checkoutservice"
 	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/cloudwego/kitex/pkg/rpcinfo"
 	"github.com/cloudwego/kitex/server"
 	kitexlogrus "github.com/kitex-contrib/obs-opentelemetry/logging/logrus"
-	etcd "github.com/kitex-contrib/registry-etcd"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
-func main() {
-	rpc.Init()
+var (
+	ServiceName  = conf.GetConf().Kitex.Service
+	RegistryAddr = conf.GetConf().Registry.RegistryAddress
+)
 
+func main() {
+	mtl.InitMetrics(ServiceName, conf.GetConf().Kitex.MetricsPort, RegistryAddr[0])
+	rpc.Init()
+	mq.Init()
 	opts := kitexInit()
 
 	svr := checkoutservice.NewServer(new(CheckoutServiceImpl), opts...)
@@ -41,13 +48,6 @@ func kitexInit() (opts []server.Option) {
 	opts = append(opts, server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{
 		ServiceName: conf.GetConf().Kitex.Service,
 	}))
-
-	// etcd
-	r, err := etcd.NewEtcdRegistry(conf.GetConf().Registry.RegistryAddress)
-	if err != nil {
-		klog.Fatal(err)
-	}
-	opts = append(opts, server.WithRegistry(r))
 
 	// klog
 	logger := kitexlogrus.NewLogger()

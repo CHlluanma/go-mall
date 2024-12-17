@@ -9,8 +9,6 @@ use (
 	./app/payment
 	./app/product
 	./app/user
-	./demo/demo_proto
-	./demo/demo_thrift
-	./hello_world
+	./common
 	./rpc_gen
 )
